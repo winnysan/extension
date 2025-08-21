@@ -17,8 +17,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.ahoj",
-        "title": "Extension: Ahoj"
+        "command": "extension.test",
+        "title": "Extension: Test"
       }
     ]
   },

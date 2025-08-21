@@ -13,6 +13,7 @@
   "workbench.navigationControl.enabled": false,
   "window.commandCenter": false,
   "workbench.statusBar.visible": true,
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.sortImports": "explicit"
   },
