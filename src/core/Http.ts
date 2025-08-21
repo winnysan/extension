@@ -14,10 +14,10 @@ export type QueryMap = Record<string, string | number | boolean>
 export interface RestRequestInit {
   readonly name?: string
   readonly method: HttpMethod
-  readonly url: string // plná URL (MVP bez env)
+  readonly url: string
   readonly headers?: HeaderMap
-  readonly body?: string // MVP: raw string/JSON
-  readonly query?: QueryMap // MVP: jednoduché ?a=1&b=2
+  readonly body?: string
+  readonly query?: QueryMap
 }
 
 export class RestRequest {

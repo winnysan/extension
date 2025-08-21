@@ -5,20 +5,18 @@
   "publisher": "Winnysan",
   "description": "Description",
   "engines": {
-    "vscode": "^1.22.0"
+    "vscode": "^1.103.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onStartupFinished"
-  ],
+  "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "extension.test",
-        "title": "Extension: Test"
+        "command": "extension.openRestView",
+        "title": "Extension: Open REST View"
       }
     ]
   },
