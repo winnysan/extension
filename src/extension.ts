@@ -1,4 +1,5 @@
 import * as vscode from 'vscode'
+import { Environment } from './core/Environment'
 import { HttpMethod, RestRequest } from './core/Http'
 import { RestClient } from './services/RestClient'
 
@@ -9,15 +10,25 @@ export function activate(context: vscode.ExtensionContext) {
   const disposable = vscode.commands.registerCommand('extension.test', async () => {
     try {
       const client = new RestClient()
+
+      const env = new Environment('DEV', {
+        base: 'https://httpbin.org',
+        token: 'dev-token-123',
+        query: 'rest-client',
+      })
+
       const req = new RestRequest({
         name: 'Sample GET',
         method: HttpMethod.GET,
-        url: 'https://httpbin.org/get',
-        headers: { Accept: 'application/json' },
-        query: { demo: true, q: 'rest-client' },
+        url: '{{base}}/get',
+        headers: {
+          Accept: 'application/json',
+          Authorization: 'Bearer {{token}}',
+        },
+        query: { demo: true, q: '{{query}}' },
       })
 
-      const res = await client.send(req)
+      const res = await client.send(req, env)
 
       const snippet = res.bodyText.length > 400 ? res.bodyText.slice(0, 400) + '…' : res.bodyText
       vscode.window.showInformationMessage(`GET ${res.url}\n${res.status} (${res.timeMs} ms)\n\n${snippet}`)

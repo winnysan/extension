@@ -35,9 +35,6 @@ export class RestRequest {
     this.headers = { ...(init.headers ?? {}) }
     this.body = init.body
     this.query = init.query ? { ...init.query } : undefined
-
-    if (!this.url || !/^https?:\/\//i.test(this.url))
-      throw new Error('RestRequest: url musi byt absolutna (http/https)')
   }
 
   with(overrides: Partial<RestRequestInit>): RestRequest {
