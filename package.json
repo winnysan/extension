@@ -1,0 +1,36 @@
+{
+  "name": "extension",
+  "displayName": "Extension",
+  "version": "0.0.1",
+  "publisher": "Winnysan",
+  "description": "Description",
+  "engines": {
+    "vscode": "^1.22.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.ahoj",
+        "title": "Extension: Ahoj"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsc -p ./",
+    "compile": "tsc -w -p ./",
+    "vscode:prepublish": "tsc -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "@types/vscode": "^1.103.0",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.2"
+  }
+}
